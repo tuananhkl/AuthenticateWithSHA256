@@ -1,0 +1,139 @@
+@* @page "/login" *@
+@* @using MyProjectName.Services *@
+@* @using Microsoft.AspNetCore.Components.WebAssembly.Authentication *@
+@* @using System.Net.Http.Headers *@
+@* @inject NavigationManager NavigationManager *@
+@* @inject ApiService ApiService *@
+@* @inject SignOutSessionStateManager SignOutManager *@
+@* *@
+@* <h1>Login</h1> *@
+@* *@
+@* @if (!string.IsNullOrEmpty(ErrorMessage)) *@
+@* { *@
+@*     <div class="alert alert-danger" role="alert">@ErrorMessage</div> *@
+@* } *@
+@* *@
+@* <div class="form-group"> *@
+@*     <label for="username">Username</label> *@
+@*     <input type="text" class="form-control" id="username" placeholder="Enter username" @bind="@Username" /> *@
+@* </div> *@
+@* *@
+@* <div class="form-group"> *@
+@*     <label for="password">Password</label> *@
+@*     <input type="password" class="form-control" id="password" placeholder="Password" @bind="@Password" /> *@
+@* </div> *@
+@* *@
+@* <button type="submit" class="btn btn-primary" @onclick="Login1">Submit</button> *@
+@* *@
+@* @code { *@
+@*     private string Username { get; set; } *@
+@*     private string Password { get; set; } *@
+@*     private string ErrorMessage { get; set; } *@
+@* *@
+@*     private async Task Login1() *@
+@*     { *@
+@*         try *@
+@*         { *@
+@*             var response = await ApiService.LoginAsync(Username, Password); *@
+@* *@
+@*             if (response.IsSuccessStatusCode) *@
+@*             { *@
+@*                 var authResult = await response.Content.ReadFromJsonAsync<AuthResult>(); *@
+@* *@
+@*                 if (authResult != null && !string.IsNullOrEmpty(authResult.Token)) *@
+@*                 { *@
+@*                     // Store the authentication token in local storage *@
+@*                     await ((ApiAuthorizationMessageHandler)ApiService.HttpClient *@
+@*                         .GetMessageHandler()) *@
+@*                         .ActivateAuthorizationHeaderAsync(authResult.Token); *@
+@* *@
+@*                     // Redirect to home page *@
+@*                     NavigationManager.NavigateTo("/"); *@
+@*                 } *@
+@*                 else *@
+@*                 { *@
+@*                     ErrorMessage = "An error occurred while logging in"; *@
+@*                 } *@
+@*             } *@
+@*             else *@
+@*             { *@
+@*                 ErrorMessage = "Invalid username or password"; *@
+@*             } *@
+@*         } *@
+@*         catch (AccessTokenNotAvailableException exception) *@
+@*         { *@
+@*             exception.Redirect(); *@
+@*         } *@
+@*         catch (Exception) *@
+@*         { *@
+@*             ErrorMessage = "An error occurred while logging in"; *@
+@*         } *@
+@*     } *@
+@* *@
+@*     private class AuthResult *@
+@*     { *@
+@*         public string Token { get; set; } *@
+@*     } *@
+@* } *@
+
+
+
+
+@page "/login"
+@using MyProjectName.Services
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using System.Net.Http.Headers
+@inject NavigationManager NavigationManager
+@inject ApiService ApiService
+@inject SignOutSessionStateManager SignOutManager
+
+<h1>Login</h1>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">@ErrorMessage</div>
+}
+
+<div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter username" @bind="@Username" />
+</div>
+
+<div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" @bind="@Password" />
+</div>
+
+<button type="submit" class="btn btn-primary" @onclick="Login1">Submit</button>
+
+@code {
+    private string Username { get; set; }
+    private string Password { get; set; }
+    private string ErrorMessage { get; set; }
+
+    private async Task Login1()
+    {
+        try
+        {
+            var response = await ApiService.LoginAsync(Username, Password);
+
+            if (response.IsSuccessStatusCode)
+            {
+    // Redirect to home page
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+                ErrorMessage = "Invalid username or password";
+            }
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+        catch (Exception)
+        {
+            ErrorMessage = "An error occurred while logging in";
+        }
+    }
+}

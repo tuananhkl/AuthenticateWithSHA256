@@ -1,0 +1,4 @@
+{
+  "ApiUrl": "https://localhost:5001/api/",
+  "IdentityUrl": "https://localhost:5001"
+}

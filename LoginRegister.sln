@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginRegister", "LoginRegister\LoginRegister.csproj", "{553BF682-60C0-4462-B89D-1D8EEF07899C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{7853385E-2E5A-459D-AE6A-BBC00714B093}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{553BF682-60C0-4462-B89D-1D8EEF07899C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{553BF682-60C0-4462-B89D-1D8EEF07899C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{553BF682-60C0-4462-B89D-1D8EEF07899C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{553BF682-60C0-4462-B89D-1D8EEF07899C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7853385E-2E5A-459D-AE6A-BBC00714B093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7853385E-2E5A-459D-AE6A-BBC00714B093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7853385E-2E5A-459D-AE6A-BBC00714B093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7853385E-2E5A-459D-AE6A-BBC00714B093}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

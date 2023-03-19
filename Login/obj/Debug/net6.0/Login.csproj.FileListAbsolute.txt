@@ -1,0 +1,6 @@
+/Users/thn/Documents/NTQ/DaoTao/LoginRegister/Login/obj/Debug/net6.0/Login.csproj.AssemblyReference.cache
+/Users/thn/Documents/NTQ/DaoTao/LoginRegister/Login/obj/Debug/net6.0/Login.GeneratedMSBuildEditorConfig.editorconfig
+/Users/thn/Documents/NTQ/DaoTao/LoginRegister/Login/obj/Debug/net6.0/Login.AssemblyInfoInputs.cache
+/Users/thn/Documents/NTQ/DaoTao/LoginRegister/Login/obj/Debug/net6.0/Login.AssemblyInfo.cs
+/Users/thn/Documents/NTQ/DaoTao/LoginRegister/Login/obj/Debug/net6.0/Login.csproj.CoreCompileInputs.cache
+/Users/thn/Documents/NTQ/DaoTao/LoginRegister/Login/obj/Debug/net6.0/Login.MvcApplicationPartsAssemblyInfo.cache
